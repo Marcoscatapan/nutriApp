@@ -1,131 +1,121 @@
-🥼 Sistema de Nutrição Clínica e Esportiva
-
+🟣 <span style="font-size:42px; font-weight:900;">SISTEMA DE NUTRIÇÃO CLÍNICA E ESPORTIVA</span>
 📱 Aplicativo profissional desenvolvido para nutricionistas
+🧩 Visão Geral do Projeto
 
-Este repositório contém o projeto completo do aplicativo de nutrição desenvolvido especialmente para uso de nutricionistas, com foco em:
+Este repositório contém o desenvolvimento completo de um aplicativo de nutrição criado para uso de nutricionistas, atendendo tanto demandas de nutrição clínica (pacientes) quanto de nutrição esportiva (atletas).
 
-Nutrição clínica (pacientes)
+O sistema foi construído para oferecer:
 
-Nutrição esportiva (atletas)
+🔹 Montagem inteligente de planos alimentares
 
-Geração automática de cardápios
+🔹 Receitas reais com macronutrientes calculados
 
-Inteligência artificial para cálculo nutricional
+🔹 Classificação automática de fotos usando IA
 
-Avaliação de fotos de refeições
+🔹 Base de alimentos com dados reais (TBCA)
 
-Controle, análises e automações do atendimento profissional
+🔹 Cálculo nutricional avançado
 
-O projeto foi construído de forma iterativa, amadurecendo todas as funcionalidades ao longo do desenvolvimento.
+🔹 Exportação profissional em PDF e CSV
 
-🚀 Objetivo do Projeto
+🔹 Interface moderna e simples para nutricionistas
 
-Criar um aplicativo completo, prático e poderoso, que permita ao nutricionista:
+🚀 Objetivo
 
-Montar planos alimentares personalizados
+Desenvolver um sistema completo que auxilie nutricionistas a:
 
-Gerar dietas automáticas com IA
+Criar planos alimentares personalizados
 
-Ajustar estratégias para pacientes comuns e atletas
+Montar refeições por período
 
-Classificar fotos enviadas pelos pacientes (usando modelo de IA)
+Avaliar adequação alimentar via fotos
 
-Controlar hidratação, carboidratos, proteínas e lipídios
+Atender pacientes comuns e atletas com estratégias distintas
 
-Montar refeições por períodos:
+Usar automações para ganho de tempo e precisão
 
-Café da manhã
+Gerar arquivos PDF, tabelas e cardápios
 
-Lanches
+Trabalhar com base alimentar real, evitando dados fictícios
 
-Almoço
+O foco é entregar qualidade profissional, seguindo lógica nutricional real.
 
-Jantar
-
-Ceia
-
-Pré-treino
-
-Pós-treino
-
-Criar substituições automáticas de alimentos
-
-Exportar tudo em PDF, CSV ou interface web
-
-Usar banco de dados completo de alimentos (TBCA)
-
-O foco é entregar um sistema moderno, rápido, visual e com lógica nutricional real — evitando receitas e combinações irreais.
-
-🧠 Tecnologias Utilizadas
+🛠️ Tecnologias Utilizadas
 
 Python
 
-Streamlit para interface do app
+Streamlit (interface do app)
 
-Pandas para manipulação da base alimentar
+Pandas
 
-TBCA (Tabela Brasileira de Composição de Alimentos)
+TBCA – Tabela Brasileira de Composição de Alimentos
 
-Modelos de IA para classificação nutricional
+FPDF
 
-FPDF para geração de documentos
+IA para análise de imagens
 
-Excel/CSV para entrada e saída de dados
+Excel / CSV
 
-APIs auxiliares para análise de imagens
+APIs externas para classificação nutricional
 
-🥗 Principais Funcionalidades Desenvolvidas
+🥗 Principais Funcionalidades
 ✔ 1. Montagem Inteligente de Refeições
 
-Regras de combinação baseadas em alimentos reais, usando TBCA:
+Combinações reais de alimentos
 
-Carboidratos
+Uso do TBCA para cálculo de macros
 
-Proteínas
+Substituições nutricionais automáticas
 
-Lipídios
+Cálculo de hidratação por refeição
 
-Substituições reais
-
-Hidratação estimada
+Regras específicas para pacientes e atletas
 
 ✔ 2. Receitas Reais
 
-Todas as receitas utilizadas no app são:
+Todas as receitas do banco interno são:
 
-Simples
+Reais
 
-Baseadas em alimentos reais
+Baseadas em pratos comuns dos brasileiros
 
-Sem invenções absurdas
+Simples e práticas
 
-Calcularam macros automaticamente
+Com macronutrientes calculados
+
+sem invenções absurdas
+
+(Nada de sopa de banana com aveia ou smoothie de frango!)
 
 ✔ 3. IA para Classificação de Fotos
 
-Avalia fotos dos servimentos enviados pelas escolas/pacientes:
+A aplicação usa modelos de IA para classificar imagens enviadas:
 
-Atende
+🟢 Atende
 
-Atende parcialmente
+🟡 Atende parcialmente
 
-Não atende
+🔴 Não atende
 
-N/A
+⚪ N/A
 
-(de acordo com seu fluxo profissional na merenda escolar)
+Recurso extremamente útil no fluxo de trabalho profissional da alimentação escolar.
 
 ✔ 4. Exportação Profissional
 
-Gera:
+Geração automática de:
 
-Relatórios em PDF
+📄 PDF
 
-Planilhas CSV e Excel
+📊 CSV
 
-Tabelas completas de refeições
+📘 Excel
 
-✔ 5. Interface intuitiva
+Tabelas completas por período
+
+Relatórios de plano nutricional
+
+✔ 5. Interface Intuitiva e Modular
 
 Organizada por:
 
@@ -133,56 +123,68 @@ Pacientes
 
 Atletas
 
-Refeições
-
 Macros
-
-Planos
 
 Receitas
 
 Substituições
 
+Avaliação por fotos
+
 Exportações
 
-📦 Como Executar o Projeto
+📁 Estrutura do Projeto
+/
+├── app.py                       # Aplicação principal
+├── alimentos.csv                # Banco TBCA
+├── receitas.csv                 # Banco de receitas reais
+├── classificacao_ia/            # Modelos e scripts de IA
+├── utils/                       # Funções auxiliares
+├── pdf/                         # Geração de PDF
+└── assets/                      # Logos, ícones e imagens
+
+▶️ Como Executar
 pip install -r requirements.txt
 streamlit run app.py
 
-👨‍⚕️ Público-Alvo
+🎯 Público-Alvo
 
 Nutricionistas clínicos
 
 Nutricionistas esportivos
 
-Personal trainers
+Pacientes em consulta
 
-Atletas
+Atletas e treinadores
 
-Pacientes acompanhados
+Profissionais de saúde
 
-Serviços de alimentação escolar (merenda)
+Setores de alimentação escolar
 
-Avaliação nutricional automatizada
+Academias e equipes esportivas
 
-✨ Status Atual
+📈 Status Atual do Projeto
 
-O app está em desenvolvimento contínuo, com:
+O sistema está em desenvolvimento contínuo, com:
 
 ✔ IA integrada
-✔ Banco de receitas reais
-✔ Módulos de pacientes e atletas
-✔ Exportação completa
-✔ Interface funcional
 
-Novas funcionalidades estão sendo adicionadas conforme evolução do projeto.
+✔ Banco completo de receitas reais
+
+✔ Estruturas para pacientes e atletas
+
+✔ Exportação funcional
+
+✔ Lógica nutricional consolidada
+
+Novas funcionalidades estão sendo adicionadas conforme a evolução do projeto.
 
 🤝 Contribuições
 
 Contribuições são bem-vindas!
 Abra uma issue ou envie um pull request.
 
-🧑‍💻 Desenvolvido por
+👤 Desenvolvedor
 
 Marcos Vinicius Catapan
-Data Analyst & Nutrição Digital Developer
+Data Analyst — Nutrição Digital Developer
