@@ -4,39 +4,35 @@
 
 📘 SUMÁRIO
 
-Visão Geral
+🔹 Visão Geral
 
-Objetivo
+🔹 Objetivo
 
-Tecnologias Utilizadas
+🔹 Tecnologias Utilizadas
 
-Principais Funcionalidades
+🔹 Principais Funcionalidades
 
-Estrutura do Projeto
+🔹 Como Executar
 
-Como Executar
+🔹 Público-Alvo
 
-Público-Alvo
+🔹 Status do Projeto
 
-Status do Projeto
+🔹 Contribuições
 
-Contribuições
-
-Desenvolvedor
+🔹 Desenvolvedor
 
 🧩 Visão Geral
 
 Este repositório contém o desenvolvimento do Sistema de Nutrição Clínica e Esportiva, um aplicativo criado especialmente para nutricionistas que desejam:
 
-melhorar a qualidade do atendimento,
+🔹 melhorar a qualidade do atendimento,
 
-automatizar tarefas,
+🔹 automatizar tarefas,
 
-gerar planos alimentares profissionais,
+🔹 gerar planos alimentares profissionais,
 
-acompanhar atletas e pacientes,
-
-e integrar ferramentas modernas de IA ao dia a dia.
+🔹 acompanhar atletas e pacientes, e integrar ferramentas modernas de IA ao dia a dia.
 
 O sistema abrange tanto Nutrição Clínica quanto Nutrição Esportiva, reunindo recursos usados por nutricionistas de alto nível.
 
@@ -64,48 +60,44 @@ Todo o sistema foi construído para refletir a prática profissional real.
 
 🛠️ Tecnologias Utilizadas
 
-Python 3.10+
+🔹 Python 3.10+
 
-Streamlit – Interface do app
+🔹 Streamlit – Interface do app
 
-Pandas – Processamento de dados
+🔹 Pandas – Processamento de dados
 
-TBCA – Base alimentar real
+🔹 TBCA – Base alimentar real
 
-FPDF – Exportação para PDF
+🔹 FPDF – Exportação para PDF
 
-IA (Machine Learning) – Classificação de imagens
-
-Excel / CSV – Entrada e saída de dados
+🔹 Excel / CSV – Entrada e saída de dados
 
 APIs externas
 
 🥗 Principais Funcionalidades
 ✔ 1. Montagem Inteligente de Refeições
 
-Baseada em alimentos reais (TBCA)
+🔹 Baseada em alimentos reais (TBCA)
 
-Combinações inteligentes
+🔹 Combinações inteligentes
 
-Cálculo automático de macros
+🔹 Cálculo automático de macros
 
-Hidratação calculada
+🔹 Hidratação calculada
 
-Estratégias diferentes para pacientes e atletas
+🔹 Estratégias diferentes para pacientes e atletas
 
 ✔ 2. Receitas Reais
 
-Nada de receitas inventadas ou sem sentido.
-
 Todas são:
 
-simples,
+🔹 simples,
 
-com ingredientes reais,
+🔹 com ingredientes reais  
 
-comuns no Brasil,
+🔹 comuns no Brasil,
 
-e com macros calculados.
+🔹  com macros calculados.
 
 ✔ 3. IA para Classificação de Fotos
 
@@ -125,11 +117,7 @@ Perfeito para profissionais que atuam na alimentação escolar.
 
 Geração de:
 
-Arquivos PDF
-
-Planilhas CSV
-
-Excel
+🔹 Arquivos PDF
 
 Tabelas completas por período e por macros
 
@@ -137,29 +125,17 @@ Tabelas completas por período e por macros
 
 Seções:
 
-Pacientes
+🔹 Pacientes
 
-Atletas
+🔹 Atletas
 
-Refeições
+🔹 Refeições
 
-Receitas
+🔹 Receitas
 
-Substituições
-
-Avaliação por imagens
+🔹 Substituições
 
 Exportações
-
-📁 Estrutura do Projeto
-/
-├── app.py                       # Aplicação principal
-├── alimentos.csv                # Banco TBCA
-├── receitas.csv                 # Banco de receitas reais
-├── classificacao_ia/            # Modelos e scripts de IA
-├── utils/                       # Funções auxiliares
-├── pdf/                         # Geração de PDFs
-└── assets/                      # Logos, ícones, imagens
 
 ▶️ Como Executar
 pip install -r requirements.txt
@@ -167,33 +143,31 @@ streamlit run app.py
 
 🎯 Público-Alvo
 
-Nutricionistas clínicos
+🔹 Nutricionistas clínicos
 
-Nutricionistas esportivos
+🔹 Nutricionistas esportivos
 
-Atletas
+🔹 Atletas
 
-Pacientes em acompanhamento
+🔹 Pacientes em acompanhamento
 
-Profissionais de saúde
+🔹 Profissionais de saúde
 
-Escolas e merenda escolar
+🔹 Escolas e merenda escolar
 
-Academias, equipes esportivas e consultórios
+🔹 Academias, equipes esportivas e consultórios
 
 📈 Status do Projeto
 
 O sistema encontra-se em desenvolvimento contínuo, com:
 
-IA integrada
+🔹 IA integrada
 
-Base de receitas reais
+🔹 Base de receitas reais
 
-Suporte a atletas e pacientes
+🔹 Exportações profissionais
 
-Exportações profissionais
-
-Interface funcional e modular
+🔹 Interface funcional e modular
 
 🤝 Contribuições
 
