@@ -13,15 +13,15 @@ import os
 from xhtml2pdf import pisa
 from io import BytesIO
 from fpdf import FPDF
-
+# st.set_page_config() deve ser a PRIMEIRA coisa no arquivo
 st.set_page_config(
-    page_title="Nutrição Convencional - NutriApp", 
-    page_icon="🥗",
+    page_title="🥗 Nutrição Convencional",
+    page_icon="🥗", 
     layout="wide"
 )
 
-st.title("🥗 Sistema de Nutrição Convencional")
-st.markdown("---")
+# Agora sim pode vir o resto do código
+def main():
 
 # --- CONFIGURAÇÃO E CONSTANTES ---
 
@@ -1583,4 +1583,5 @@ def main():
     """, unsafe_allow_html=True)
      
 if __name__ == "__main__":
+
     main()
