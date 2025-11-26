@@ -994,29 +994,25 @@ def gerar_html_para_pdf_triatlo(dados_paciente, cardapio_semanal, nome_nutri, cr
             border-top: 1px solid #333;
             padding-top: 40px;
         }
-       .assinatura-conteudo {
-    text-align: center;
-    margin-top: 10px;
-    line-height: 1.0;  /* MUDADO: era 1.4 */
+        .assinatura-conteudo {
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.4;
         }
         .assinatura-nome {
-    margin: 2px 0;     /* MUDADO: era 5px 0 */
-    font-weight: bold;
-    font-size: 13pt;
-    line-height: 1.0;  /* ADICIONADO */
+            margin: 5px 0;
+            font-weight: bold;
+            font-size: 13pt;
         }
         .assinatura-crn {
-    margin: 2px 0;     /* MUDADO: era 5px 0 */
-    font-size: 11pt;
-    color: #666;
-    line-height: 1.0;  /* ADICIONADO */
+            margin: 5px 0;
+            font-size: 11pt;
+            color: #666;
         }
         .assinatura-data {
-    margin: 2px 0;     /* MUDADO: era 5px 0 */
-    font-size: 11pt;
-    color: #666;
-    line-height: 1.0;  /* ADICIONADO */
-        }
+            margin: 5px 0;
+            font-size: 11pt;
+            color: #666;
         }
     </style>
     """
