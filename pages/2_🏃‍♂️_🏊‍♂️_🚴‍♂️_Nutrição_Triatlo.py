@@ -994,25 +994,29 @@ def gerar_html_para_pdf_triatlo(dados_paciente, cardapio_semanal, nome_nutri, cr
             border-top: 1px solid #333;
             padding-top: 40px;
         }
-        .assinatura-conteudo {
-            text-align: center;
-            margin-top: 10px;
-            line-height: 1.4;
+       .assinatura-conteudo {
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.0;  /* MUDADO: era 1.4 */
         }
         .assinatura-nome {
-            margin: 5px 0;
-            font-weight: bold;
-            font-size: 13pt;
+    margin: 2px 0;     /* MUDADO: era 5px 0 */
+    font-weight: bold;
+    font-size: 13pt;
+    line-height: 1.0;  /* ADICIONADO */
         }
         .assinatura-crn {
-            margin: 5px 0;
-            font-size: 11pt;
-            color: #666;
+    margin: 2px 0;     /* MUDADO: era 5px 0 */
+    font-size: 11pt;
+    color: #666;
+    line-height: 1.0;  /* ADICIONADO */
         }
         .assinatura-data {
-            margin: 5px 0;
-            font-size: 11pt;
-            color: #666;
+    margin: 2px 0;     /* MUDADO: era 5px 0 */
+    font-size: 11pt;
+    color: #666;
+    line-height: 1.0;  /* ADICIONADO */
+        }
         }
     </style>
     """
@@ -1881,7 +1885,7 @@ def main():
         st.session_state.idade = idade
         
         # DADOS ESPECÍFICOS DO TRIATLO
-        st.header("🏊‍♂️ Dados do Triatlo")
+        st.header("🏊‍♂️🚴‍♂️🏃‍♂️ Dados do Triatlo")
         nivel_triatlo = st.selectbox("Nível do Triatleta", ['- Selecione -'] + NIVEIS_TRIATLO, key="nivel_triatlo")
         distancia_alvo = st.selectbox("Distância Alvo", ['- Selecione -'] + DISTANCIAS_TRIATLO, key="distancia_alvo")
         
@@ -2365,3 +2369,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
