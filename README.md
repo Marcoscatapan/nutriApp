@@ -8,19 +8,19 @@ Este repositório contém o desenvolvimento completo de um aplicativo de nutriç
 
 O sistema foi construído para oferecer:
 
--🔹 Montagem inteligente de planos alimentares
+🔹 Montagem inteligente de planos alimentares
 
--🔹 Receitas reais com macronutrientes calculados
+🔹 Receitas reais com macronutrientes calculados
 
--🔹 Classificação automática de fotos usando IA
+🔹 Classificação automática de fotos usando IA
 
--🔹 Base de alimentos com dados reais (TBCA)
+🔹 Base de alimentos com dados reais (TBCA)
 
--🔹 Cálculo nutricional avançado
+🔹 Cálculo nutricional avançado
 
--🔹 Exportação profissional em PDF e CSV
+🔹 Exportação profissional em PDF e CSV
 
--🔹 Interface moderna e simples para nutricionistas
+🔹 Interface moderna e simples para nutricionistas
 
 🚀 Objetivo
 
