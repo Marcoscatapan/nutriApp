@@ -1,4 +1,4 @@
-#Triatlo
+# Triatlo - SISTEMA DE NUTRIÇÃO PARA TRIATLETAS CORRIGIDO
 import streamlit as st
 import pandas as pd
 from pulp import *
@@ -20,10 +20,6 @@ st.set_page_config(
     page_icon="🏊‍♂️",
     layout="wide"
 )
-
-def main():
-    # resto do código...
-
 
 # =============================================================================
 # CONFIGURAÇÃO E CONSTANTES - TRIATLO + CONVENCIONAL
@@ -1149,6 +1145,7 @@ def gerar_html_para_pdf_triatlo(dados_paciente, cardapio_semanal, nome_nutri, cr
 </html>"""
     
     return html
+
 def gerar_pdf_triatlo(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, nivel_triatlo, distancia_alvo):
     """Gera PDF integrado para triatlo - CORRIGIDA"""
     try:
@@ -1833,13 +1830,6 @@ def mostrar_competicoes():
 # =============================================================================
 
 def main():
-    st.set_page_config(
-        page_title="NutriApp - Triatlo", 
-        page_icon="🏊‍♂️🚴‍♂️🏃‍♂️",
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
-    
     # Header principal
     st.markdown('<h1 class="main-header">🏊‍♂️ 🚴‍♂️ 🏃‍♂️ Nutrição para Triatletas</h1>', unsafe_allow_html=True)
     
@@ -2375,5 +2365,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    #streamlit run 3_NUTRICAO_TRIATLO.py
