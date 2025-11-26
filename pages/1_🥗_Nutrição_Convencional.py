@@ -13,15 +13,13 @@ import os
 from xhtml2pdf import pisa
 from io import BytesIO
 from fpdf import FPDF
-# st.set_page_config() deve ser a PRIMEIRA coisa no arquivo
+
+# PRIMEIRA LINHA após os imports
 st.set_page_config(
-    page_title="🥗 Nutrição Convencional",
-    page_icon="🥗", 
+    page_title="🥗 Nutrição Convencional", 
+    page_icon="🥗",
     layout="wide"
 )
-
-# Agora sim pode vir o resto do código
-def main():
 
 # --- CONFIGURAÇÃO E CONSTANTES ---
 
@@ -991,9 +989,6 @@ def limpar_todos_dados():
 
 # --- INTERFACE PRINCIPAL ---
 def main():
-    st.set_page_config(page_title="🥗 Nutrição Convencional", layout="wide")
-    st.title("🥗 Nutrição Convencional")
-    
     # Inicializar session_state
     if 'cardapio_semanal' not in st.session_state:
         st.session_state.cardapio_semanal = {}
@@ -1583,5 +1578,4 @@ def main():
     """, unsafe_allow_html=True)
      
 if __name__ == "__main__":
-
     main()
