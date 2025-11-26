@@ -14,7 +14,57 @@ from xhtml2pdf import pisa
 from io import BytesIO
 from fpdf import FPDF
 
+# PRIMEIRA LINHA após os imports
+st.set_page_config(
+    page_title="🥗 Nutrição Convencional", 
+    page_icon="🥗",
+    layout="wide"
+)
 
+# === CÓDIGO ADICIONADO PARA OCULTAR TODOS OS ELEMENTOS DO HEADER ===
+# CSS para ocultar TODOS os elementos do header do Streamlit
+st.markdown("""
+<style>
+    /* Oculta o menu hamburguer e header completo do Streamlit */
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    
+    /* Remove o menu superior DIREITO (Share, Deploy, 3 pontinhos) */
+    .stDeployButton {display:none;}
+    #stDecoration {display:none;}
+    
+    /* Remove os botões de ação do header */
+    [data-testid="stActionButton"] {display:none;}
+    [data-testid="baseButton-header"] {display:none;}
+    
+    /* Remove elementos específicos do header direito */
+    .stApp > header {display: none;}
+    .stApp [data-testid="stHeader"] {display: none;}
+    .stApp [data-testid="stToolbar"] {display: none;}
+    
+    /* Remove qualquer elemento restante do header */
+    .stApp > div:first-child {display: none;}
+    
+    /* Remove o padding extra do topo */
+    .css-18e3th9 {
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+    }
+    
+    /* Ajusta o conteúdo principal para ocupar o espaço */
+    .block-container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    /* Remove qualquer margem residual */
+    .main .block-container {
+        padding-top: 1rem;
+    }
+</style>
+""", unsafe_allow_html=True)
+# === FIM DO CÓDIGO ADICIONADO ===
 
 # PRIMEIRA LINHA após os imports
 st.set_page_config(
@@ -1581,4 +1631,5 @@ def main():
      
 if __name__ == "__main__":
     main()
+
 
