@@ -14,15 +14,15 @@ from xhtml2pdf import pisa
 from io import BytesIO
 import json
 
-
+# PRIMEIRA LINHA após os imports
 st.set_page_config(
-    page_title="Nutrição para Triatletas - NutriApp", 
+    page_title="🏊‍♂️ Nutrição Triatlo", 
     page_icon="🏊‍♂️",
     layout="wide"
 )
 
-st.title("🏊‍♂️🚴‍♂️🏃‍♂️ Sistema de Nutrição para Triatletas")
-st.markdown("---")
+def main():
+    # resto do código...
 
 
 # =============================================================================
@@ -2375,4 +2375,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
     #streamlit run 3_NUTRICAO_TRIATLO.py
