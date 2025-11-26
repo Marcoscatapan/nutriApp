@@ -1,5 +1,7 @@
 🟣 <span style="font-size:42px; font-weight:900;">SISTEMA DE NUTRIÇÃO CLÍNICA E ESPORTIVA</span>
+
 📱 Aplicativo profissional desenvolvido para nutricionistas
+
 🧩 Visão Geral do Projeto
 
 Este repositório contém o desenvolvimento completo de um aplicativo de nutrição criado para uso de nutricionistas, atendendo tanto demandas de nutrição clínica (pacientes) quanto de nutrição esportiva (atletas).
