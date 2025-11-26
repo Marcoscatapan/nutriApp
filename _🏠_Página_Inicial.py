@@ -33,6 +33,18 @@ footer {visibility: hidden !important;}
 """, unsafe_allow_html=True)
 
 # =============================================================================
+# CSS ADICIONAL: REMOVER DE FORMA DEFINITIVA O BOTÃO "Manage app"
+# =============================================================================
+st.markdown("""
+<style>
+button[title="Manage app"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# =============================================================================
 # CSS PERSONALIZADO - CORRIGIDO
 # =============================================================================
 st.markdown("""
@@ -152,6 +164,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+
 # =============================================================================
 # PÁGINA INICIAL
 # =============================================================================
@@ -160,11 +173,14 @@ def main():
     Página principal do NutriApp - Sistema de Nutrição
     """
     
+    # Header principal
     st.markdown('<div class="main-header">🥗 NutriApp</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">Sistema Completo de Nutrição Clínica e Esportiva</div>', unsafe_allow_html=True)
     
+    # Informação sobre navegação
     st.success("🎯 **Use o menu lateral para acessar os sistemas especializados**")
     
+    # Divisão em colunas para as opções principais - CARDS NO MESMO TAMANHO
     col1, col2 = st.columns(2)
     
     with col1:
@@ -198,9 +214,11 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
+    # Seção de características do sistema - ICONES E TEXTOS ALINHADOS
     st.markdown("---")
     st.markdown("## 🎯 Características do Sistema")
     
+    # Grid de características
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -266,6 +284,7 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
+    # Instruções de uso
     st.markdown("---")
     st.markdown("## 📖 Como Usar")
     
@@ -297,6 +316,7 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
+    # Rodapé
     st.markdown("---")
     st.markdown("""
     <div class="footer">
@@ -307,12 +327,13 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-
 # =============================================================================
 # EXECUÇÃO
 # =============================================================================
 if __name__ == "__main__":
     main()
+
+
 
 
 
