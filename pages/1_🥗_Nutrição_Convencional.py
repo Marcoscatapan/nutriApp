@@ -14,38 +14,6 @@ from xhtml2pdf import pisa
 from io import BytesIO
 from fpdf import FPDF
 
-# PRIMEIRA LINHA após os imports
-st.set_page_config(
-    page_title="🥗 Nutrição Convencional", 
-    page_icon="🥗",
-    layout="wide"
-)
-
-# === NOVO CÓDIGO ADICIONADO ===
-# CSS para ocultar a barra superior esquerda do Streamlit
-st.markdown("""
-<style>
-    /* Oculta o menu hamburguer e header do Streamlit */
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    
-    /* Remove o padding extra do topo */
-    .css-18e3th9 {
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-    }
-    
-    /* Ajusta o conteúdo principal para ocupar o espaço */
-    .block-container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-    
-    /* Remove o footer do Streamlit */
-    footer {visibility: hidden;}
-</style>
-""", unsafe_allow_html=True)
-# === FIM DO NOVO CÓDIGO ===
 
 # --- CONFIGURAÇÃO E CONSTANTES ---
 # O RESTANTE DO SEU CÓDIGO CONTINUA EXATAMENTE IGUAL...
@@ -1614,4 +1582,5 @@ def main():
      
 if __name__ == "__main__":
     main()
+
 
