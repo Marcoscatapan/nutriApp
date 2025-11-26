@@ -11,6 +11,28 @@ st.set_page_config(
 )
 
 # =============================================================================
+# REMOVER SHARE / STAR / GITHUB / MANAGE APP / MENU
+# =============================================================================
+st.markdown("""
+<style>
+/* Remove o menu (três pontos) */
+#MainMenu {visibility: hidden !important;}
+
+/* Remove o cabeçalho superior (Share, Star, GitHub) */
+header {visibility: hidden !important;}
+
+/* Remove toolbar usada pelo Streamlit Cloud */
+[data-testid="stToolbar"] {display: none !important;}
+
+/* Remove o botão Manage app */
+button[title="Manage app"] {display: none !important;}
+
+/* Remove o rodapé */
+footer {visibility: hidden !important;}
+</style>
+""", unsafe_allow_html=True)
+
+# =============================================================================
 # CSS PERSONALIZADO - CORRIGIDO
 # =============================================================================
 st.markdown("""
@@ -126,12 +148,8 @@ st.markdown("""
         font-size: 0.9rem;
         opacity: 0.8;
     }
-    
-    /* REMOVENDO O CSS QUE ESCONDE A SIDEBAR */
-    /* Mantemos apenas o estilo personalizado sem interferir na funcionalidade */
 </style>
 """, unsafe_allow_html=True)
-
 
 
 # =============================================================================
@@ -142,14 +160,11 @@ def main():
     Página principal do NutriApp - Sistema de Nutrição
     """
     
-    # Header principal
     st.markdown('<div class="main-header">🥗 NutriApp</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">Sistema Completo de Nutrição Clínica e Esportiva</div>', unsafe_allow_html=True)
     
-    # Informação sobre navegação
     st.success("🎯 **Use o menu lateral para acessar os sistemas especializados**")
     
-    # Divisão em colunas para as opções principais - CARDS NO MESMO TAMANHO
     col1, col2 = st.columns(2)
     
     with col1:
@@ -183,11 +198,9 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
-    # Seção de características do sistema - ICONES E TEXTOS ALINHADOS
     st.markdown("---")
     st.markdown("## 🎯 Características do Sistema")
     
-    # Grid de características
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -253,7 +266,6 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
-    # Instruções de uso
     st.markdown("---")
     st.markdown("## 📖 Como Usar")
     
@@ -285,7 +297,6 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
-    # Rodapé
     st.markdown("---")
     st.markdown("""
     <div class="footer">
@@ -296,9 +307,11 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
+
 # =============================================================================
 # EXECUÇÃO
 # =============================================================================
 if __name__ == "__main__":
     main()
-#streamlit run app.py
+
+
