@@ -145,16 +145,6 @@ Substituições
 
 Exportações
 
-🧩 Estrutura do Projeto
-/
-├── app.py                  # Aplicação principal (Streamlit)
-├── receitas.csv            # Banco de receitas reais
-├── alimentos.csv           # Banco de alimentos TBCA
-├── classificacao_ia/       # Código da inteligência artificial
-├── utils/                  # Funções auxiliares
-├── pdf/                    # Exportação de relatórios
-└── assets/                 # Ícones, imagens, logos
-
 📦 Como Executar o Projeto
 pip install -r requirements.txt
 streamlit run app.py
