@@ -24,9 +24,9 @@ O sistema foi construído para oferecer:
 
 🚀 Objetivo
 
--Desenvolver um sistema completo que auxilie nutricionistas a:
+. Desenvolver um sistema completo que auxilie nutricionistas a:
 
--Criar planos alimentares personalizados
+- Criar planos alimentares personalizados
 
 -Montar refeições por período
 
