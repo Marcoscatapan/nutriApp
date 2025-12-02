@@ -756,6 +756,12 @@ def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_
     data_emissao = datetime.now().strftime("%d/%m/%Y")
     hora_emissao = datetime.now().strftime("%H:%M")
     
+    # Usar valores padrão se estiverem vazios
+    if not nome_nutri:
+        nome_nutri = "Clesiane Rossa"
+    if not crn:
+        crn = "15003"
+    
     css = """
     <style>
         body {
@@ -1153,6 +1159,10 @@ def main():
     ovo_lacto_vegetariano = st.session_state.ovo_lacto_input if 'ovo_lacto_input' in st.session_state else False
     pesco_vegetariano = st.session_state.pesco_vegetariano_input if 'pesco_vegetariano_input' in st.session_state else False
     
+    # Coletar dados do nutricionista do session_state
+    nome_nutri_value = st.session_state.nome_nutri_input if 'nome_nutri_input' in st.session_state else ""
+    crn_value = st.session_state.crn_input if 'crn_input' in st.session_state else ""
+    
     # Cálculos (AGORA usando dados atualizados do session_state)
     perfil = []
     if celiaca: perfil.append('Celíaco')
@@ -1542,10 +1552,6 @@ def main():
     with tab6:
         st.header("📊 Relatório Completo em PDF")
         
-        # Coletar os dados do nutricionista do session_state
-        nome_nutri = st.session_state.nome_nutri_input if 'nome_nutri_input' in st.session_state else ""
-        crn = st.session_state.crn_input if 'crn_input' in st.session_state else ""
-        
         cardapio_existe = (
             'cardapio_editavel' in st.session_state and 
             st.session_state.cardapio_editavel and
@@ -1556,8 +1562,8 @@ def main():
         if dados_validos and cardapio_existe:
             # Exibir os dados do nutricionista que serão usados
             st.info(f"**Dados do profissional que aparecerão no PDF:**")
-            st.info(f"• **Nutricionista:** {nome_nutri if nome_nutri else 'Clesiane Rossa (valor padrão)'}")
-            st.info(f"• **CRN:** {crn if crn else '15003 (valor padrão)'}")
+            st.info(f"• **Nutricionista:** {nome_nutri_value if nome_nutri_value else 'Clesiane Rossa (valor padrão)'}")
+            st.info(f"• **CRN:** {crn_value if crn_value else '15003 (valor padrão)'}")
             
             if st.button("📄 Gerar Relatório PDF", type="primary", key="gerar_pdf"):
                 with st.spinner("Gerando relatório PDF..."):
@@ -1589,11 +1595,12 @@ def main():
                                             'receita': receita_data
                                         }
                         
+                        # Passar os valores para a função de geração do PDF
                         pdf_bytes = gerar_pdf_com_xhtml2pdf(
                             dados_paciente, 
                             cardapio_semanal_pdf,
-                            nome_nutri,  # Agora usando o nome do formulário
-                            crn,         # Agora usando o CRN do formulário
+                            nome_nutri_value,  # Passar o valor do nome do nutricionista
+                            crn_value,         # Passar o valor do CRN
                             tipo_dieta,
                             meta
                         )
