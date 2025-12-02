@@ -13,6 +13,7 @@ import os
 from xhtml2pdf import pisa
 from io import BytesIO
 from fpdf import FPDF
+
 # === PRIMEIRO: set_page_config DEVE SER A PRIMEIRA LINHA ===
 st.set_page_config(
     page_title="🥗 Nutrição Convencional", 
@@ -748,7 +749,7 @@ def gerar_pdf_lista_compras(lista_compras, dados_paciente, tipo_dieta):
         st.error(f"Erro ao gerar PDF da lista: {str(e)}")
         return None
 
-# --- FUNÇÕES PARA GERAR PDF DO PLANO NUTRICIONAL ---
+# --- FUNÇÕES PARA GERAR PDF DO PLANO NUTRICIONAL (CORRIGIDO) ---
 def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, meta):
     """Gera HTML formatado para conversão em PDF com xhtml2pdf"""
     
@@ -935,8 +936,8 @@ def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_
     <div class="assinatura-container">
         <div class="linha-assinatura"></div>
         <div class="assinatura-conteudo">
-            <div class="assinatura-nome">Clesiane Rossa</div>
-            <div class="assinatura-crn">CRN: 15003</div>
+            <div class="assinatura-nome">{nome_nutri}</div>
+            <div class="assinatura-crn">CRN: {crn}</div>
             <div class="assinatura-data">Data de emissão: """ + data_emissao + """ às """ + hora_emissao + """</div>
         </div>
     </div>
@@ -948,6 +949,12 @@ def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_
 def gerar_pdf_com_xhtml2pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, meta):
     """Gera PDF usando xhtml2pdf"""
     try:
+        # Usar valores padrão se os campos estiverem vazios
+        if not nome_nutri:
+            nome_nutri = "Clesiane Rossa"
+        if not crn:
+            crn = "15003"
+            
         html_content = gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, meta)
         
         pdf_buffer = BytesIO()
@@ -1535,6 +1542,10 @@ def main():
     with tab6:
         st.header("📊 Relatório Completo em PDF")
         
+        # Coletar os dados do nutricionista do session_state
+        nome_nutri = st.session_state.nome_nutri_input if 'nome_nutri_input' in st.session_state else ""
+        crn = st.session_state.crn_input if 'crn_input' in st.session_state else ""
+        
         cardapio_existe = (
             'cardapio_editavel' in st.session_state and 
             st.session_state.cardapio_editavel and
@@ -1543,66 +1554,68 @@ def main():
         )
         
         if dados_validos and cardapio_existe:
-            if nome_nutri and crn:
-                if st.button("📄 Gerar Relatório PDF", type="primary", key="gerar_pdf"):
-                    with st.spinner("Gerando relatório PDF..."):
-                        try:
-                            dados_paciente = {
-                                'nome': nome_paciente,
-                                'peso': peso,
-                                'altura': altura,
-                                'idade': idade,
-                                'faixa_etaria': faixa_etaria,
-                                'imc': imc,
-                                'classificacao_imc': classificacao,
-                                'tge': tge,
-                                'cho_p': cho_p,
-                                'ptn_p': ptn_p,
-                                'lip_p': lip_p,
-                                'hidratacao': hidratacao
-                            }
+            # Exibir os dados do nutricionista que serão usados
+            st.info(f"**Dados do profissional que aparecerão no PDF:**")
+            st.info(f"• **Nutricionista:** {nome_nutri if nome_nutri else 'Clesiane Rossa (valor padrão)'}")
+            st.info(f"• **CRN:** {crn if crn else '15003 (valor padrão)'}")
+            
+            if st.button("📄 Gerar Relatório PDF", type="primary", key="gerar_pdf"):
+                with st.spinner("Gerando relatório PDF..."):
+                    try:
+                        dados_paciente = {
+                            'nome': nome_paciente,
+                            'peso': peso,
+                            'altura': altura,
+                            'idade': idade,
+                            'faixa_etaria': faixa_etaria,
+                            'imc': imc,
+                            'classificacao_imc': classificacao,
+                            'tge': tge,
+                            'cho_p': cho_p,
+                            'ptn_p': ptn_p,
+                            'lip_p': lip_p,
+                            'hidratacao': hidratacao
+                        }
+                        
+                        cardapio_semanal_pdf = {}
+                        for dia in DIAS_SEMANA:
+                            if dia in st.session_state.cardapio_semanal:
+                                cardapio_semanal_pdf[dia] = {}
+                                for refeicao_info in REFEICOES_ORGANIZADAS:
+                                    tipo_refeicao = refeicao_info["tipo"]
+                                    if tipo_refeicao in st.session_state.cardapio_semanal[dia]:
+                                        receita_data = st.session_state.cardapio_semanal[dia][tipo_refeicao]['receita']
+                                        cardapio_semanal_pdf[dia][tipo_refeicao] = {
+                                            'receita': receita_data
+                                        }
+                        
+                        pdf_bytes = gerar_pdf_com_xhtml2pdf(
+                            dados_paciente, 
+                            cardapio_semanal_pdf,
+                            nome_nutri,  # Agora usando o nome do formulário
+                            crn,         # Agora usando o CRN do formulário
+                            tipo_dieta,
+                            meta
+                        )
+                        
+                        if pdf_bytes:
+                            pdf_output = f"plano_nutricional_{nome_paciente.replace(' ', '_')}.pdf"
                             
-                            cardapio_semanal_pdf = {}
-                            for dia in DIAS_SEMANA:
-                                if dia in st.session_state.cardapio_semanal:
-                                    cardapio_semanal_pdf[dia] = {}
-                                    for refeicao_info in REFEICOES_ORGANIZADAS:
-                                        tipo_refeicao = refeicao_info["tipo"]
-                                        if tipo_refeicao in st.session_state.cardapio_semanal[dia]:
-                                            receita_data = st.session_state.cardapio_semanal[dia][tipo_refeicao]['receita']
-                                            cardapio_semanal_pdf[dia][tipo_refeicao] = {
-                                                'receita': receita_data
-                                            }
-                            
-                            pdf_bytes = gerar_pdf_com_xhtml2pdf(
-                                dados_paciente, 
-                                cardapio_semanal_pdf,
-                                nome_nutri,
-                                crn,
-                                tipo_dieta,
-                                meta
+                            st.download_button(
+                                label="📥 Download do Relatório Completo",
+                                data=pdf_bytes,
+                                file_name=pdf_output,
+                                mime="application/pdf",
+                                type="primary"
                             )
                             
-                            if pdf_bytes:
-                                pdf_output = f"plano_nutricional_{nome_paciente.replace(' ', '_')}.pdf"
-                                
-                                st.download_button(
-                                    label="📥 Download do Relatório Completo",
-                                    data=pdf_bytes,
-                                    file_name=pdf_output,
-                                    mime="application/pdf",
-                                    type="primary"
-                                )
-                                
-                                st.success("✅ PDF gerado com sucesso! Clique no botão acima para fazer o download.")
-                            else:
-                                st.error("❌ Falha ao gerar PDF")
-                            
-                        except Exception as e:
-                            st.error(f"❌ Erro ao gerar PDF: {str(e)}")
-                            st.info("💡 Dica: Verifique se todos os campos estão preenchidos corretamente.")
-            else:
-                st.warning("⚠️ Preencha os dados do nutricionista (Nome e CRN)")
+                            st.success("✅ PDF gerado com sucesso! Clique no botão acima para fazer o download.")
+                        else:
+                            st.error("❌ Falha ao gerar PDF")
+                        
+                    except Exception as e:
+                        st.error(f"❌ Erro ao gerar PDF: {str(e)}")
+                        st.info("💡 Dica: Verifique se todos os campos estão preenchidos corretamente.")
         else:
             st.warning("⚠️ Preencha todos os dados do paciente e gere o cardápio primeiro")
     
@@ -1621,7 +1634,6 @@ def main():
      
 if __name__ == "__main__":
     main()
-
 
 
 
