@@ -750,16 +750,21 @@ def gerar_pdf_lista_compras(lista_compras, dados_paciente, tipo_dieta):
         return None
 
 # --- FUNÇÕES PARA GERAR PDF DO PLANO NUTRICIONAL (CORRIGIDO) ---
+# --- FUNÇÕES PARA GERAR PDF DO PLANO NUTRICIONAL (CORRIGIDO) ---
 def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, meta):
     """Gera HTML formatado para conversão em PDF com xhtml2pdf"""
     
     data_emissao = datetime.now().strftime("%d/%m/%Y")
     hora_emissao = datetime.now().strftime("%H:%M")
     
-    # Usar valores padrão se estiverem vazios
-    if not nome_nutri:
+    # Garantir que os valores não sejam None
+    nome_nutri = str(nome_nutri) if nome_nutri is not None else "Clesiane Rossa"
+    crn = str(crn) if crn is not None else "15003"
+    
+    # Se estiverem vazios, usar valores padrão
+    if nome_nutri.strip() == "":
         nome_nutri = "Clesiane Rossa"
-    if not crn:
+    if crn.strip() == "":
         crn = "15003"
     
     css = """
@@ -926,7 +931,7 @@ def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_
         
         html += "</div>"
     
-    html += """<div style="page-break-before: always;"></div>
+    html += f"""<div style="page-break-before: always;"></div>
     <div class="section-title">ORIENTAÇÕES GERAIS</div>
     <div class="orientacoes">
         <p>• Plano desenvolvido para suas necessidades específicas</p>
@@ -944,7 +949,7 @@ def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_
         <div class="assinatura-conteudo">
             <div class="assinatura-nome">{nome_nutri}</div>
             <div class="assinatura-crn">CRN: {crn}</div>
-            <div class="assinatura-data">Data de emissão: """ + data_emissao + """ às """ + hora_emissao + """</div>
+            <div class="assinatura-data">Data de emissão: {data_emissao} às {hora_emissao}</div>
         </div>
     </div>
 </body>
@@ -955,10 +960,14 @@ def gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_
 def gerar_pdf_com_xhtml2pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, meta):
     """Gera PDF usando xhtml2pdf"""
     try:
-        # Usar valores padrão se os campos estiverem vazios
-        if not nome_nutri:
+        # Converter para string e garantir que não sejam None
+        nome_nutri = str(nome_nutri) if nome_nutri is not None else "Clesiane Rossa"
+        crn = str(crn) if crn is not None else "15003"
+        
+        # Se estiverem vazios, usar valores padrão
+        if nome_nutri.strip() == "":
             nome_nutri = "Clesiane Rossa"
-        if not crn:
+        if crn.strip() == "":
             crn = "15003"
             
         html_content = gerar_html_para_pdf(dados_paciente, cardapio_semanal, nome_nutri, crn, tipo_dieta, meta)
@@ -1641,6 +1650,7 @@ def main():
      
 if __name__ == "__main__":
     main()
+
 
 
 
