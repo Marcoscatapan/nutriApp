@@ -1640,7 +1640,7 @@ def main():
     st.markdown("""
     <div style="text-align: center; margin-top: 4rem; padding: 2rem 0; color: #666; border-top: 1px solid #e0e0e0; width: 100%;">
         <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">
-            © 2025 Data Analysis Cattapan. Todos os direitos reservados.
+            © 2026 Data Analysis Cattapan. Todos os direitos reservados.
         </div>
         <div style="font-size: 0.9rem; opacity: 0.8;">
             Sistema desenvolvido para nutricionistas | 🥗 Nutrição Convencional | 🏊‍♂️🚴‍♂️🏃‍♂️ Nutrição para Triatletas
