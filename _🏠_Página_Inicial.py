@@ -320,7 +320,7 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div class="footer">
-        <div class="footer-title">© 2025 Data Analysis Cattapan. Todos os direitos reservados.</div>
+        <div class="footer-title">© 2026 Data Analysis Cattapan. Todos os direitos reservados.</div>
         <div class="footer-subtitle">
             Sistema desenvolvido para nutricionistas | 🥗 Nutrição Convencional | 🏊‍♂️🚴‍♂️🏃‍♂️ Nutrição para Triatletas
         </div>
